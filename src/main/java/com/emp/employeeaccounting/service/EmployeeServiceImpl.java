@@ -31,18 +31,18 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee find(String firstName, String lastName) {
+    public Employee remove(String firstName, String lastName) {
         Employee employee = new Employee(firstName, lastName);
-        if (employees.contains(employee)) {
+        if (employees.remove(employee)) {
             return employee;
         }
         throw new EmployeeNotFoundException();
     }
 
     @Override
-    public Employee remove(String firstName, String lastName) {
+    public Employee find(String firstName, String lastName) {
         Employee employee = new Employee(firstName, lastName);
-        if (employees.remove(employee)) {
+        if (employees.contains(employee)) {
             return employee;
         }
         throw new EmployeeNotFoundException();
